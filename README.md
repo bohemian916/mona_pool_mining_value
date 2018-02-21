@@ -26,8 +26,14 @@ $ pip install requests pandas
 実行は 
 
 ```
-python main.py
+$ python main.py
 ```
+
+トランザクション数、取得価値総額、取得モナ数、平均取得価格を表示します。
+
+![output](output_example.png)
+
+また、output.csvというファイルに詳細が出力されます。
 
 ## マイニング時の所得計算について
 以下の方針を参考にしています。
@@ -48,9 +54,10 @@ python main.py
 
 http://www.nta.go.jp/shiraberu/zeiho-kaishaku/joho-zeikaishaku/shotoku/shinkoku/171127/01.pdf
 
+取得時刻での価値を厳密に取得することが難しいので、取得したその日の終値で計算しています。
+
 ## モナコインの価格の取得方法
 Zaifからダウンロードできる日足のmana/jpyのcsvを利用しています。
 https://zaif.jp/download_trade_price
-
 
 
