@@ -7,7 +7,7 @@ import sys
 import datetime
 import requests
 import pandas as pd
-import ConfigParser
+import configparser
 
 def read_price():
     df = pd.read_csv('mona_jpy_2017.csv')
@@ -40,7 +40,7 @@ def get_transactions(url, key):
 
 def main():
     # read ini
-    inifile = ConfigParser.SafeConfigParser()
+    inifile = configparser.SafeConfigParser()
     inifile.read("./pool.ini")
 
     url     = inifile.get("info", "pool_url")
@@ -51,7 +51,7 @@ def main():
 
     prices = read_price()
     
-    data_frame = pd.DataFrame(index=[], columns=['timestamp', 'amount', 'closing_price', 'accuisition_value'])
+    data_frame = pd.DataFrame(index=[], columns=['timestamp', 'amount', 'closing_price', 'acquisition_value'])
     total_value = 0.0
     total_mona  = 0.0
 
@@ -66,10 +66,10 @@ def main():
         data_frame = data_frame.append(series, ignore_index = True)
 
     print("result in 2017")
-    print("number of transaction: {0}".format(len(trans)))
+    print("number of transactions: {0}".format(len(trans)))
     print("total value: {0}".format(str(total_value)))
-    print("total accuisition mona: {0}".format(str(total_mona)))
-    print("average accuisition value: {0}".format(str(total_value/total_mona)))
+    print("total acquisition mona: {0}".format(str(total_mona)))
+    print("average acquisition value: {0}".format(str(total_value/total_mona)))
 
     data_frame.to_csv('./output.csv') 
 main()
