@@ -3,6 +3,15 @@
 温水プール用に作りましたが、vippool等のMPOSベースのAPIに互換があるプールなら動作するはずです。
 APIから全てのトランザクションを取得し、取得した日の終値をかけて、マイニング時の取得金額を算出します。
 
+## 環境
+* python3
+* pip
+    * requests
+    * pandas
+
+python2系の方は、masterブランチをご利用ください。
+https://github.com/bohemian916/mona_pool_mining_value
+	
 ## 使い方
 pool.iniというファイルに使っているプール情報を入力します。
 プールのurlと、API KEYを設定してください。
