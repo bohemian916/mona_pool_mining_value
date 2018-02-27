@@ -28,6 +28,9 @@ def get_transactions(url, key):
     transactions = j["getusertransactions"]["data"]["transactions"]
     res = []
     for d in transactions:
+        t_type = d["type"]
+        if t_type != "Credit":
+            continue
         timestamp = d["timestamp"]
         amount =float(d["amount"])
 
